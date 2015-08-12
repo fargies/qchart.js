@@ -19,16 +19,13 @@ import "QChart.js"        as Charts
 import "QChartGallery.js" as ChartsData
 
 Rectangle {
-
-  property int chart_width: 300;
-  property int chart_height: 300;
   property int chart_spacing: 20;
   property int text_height: 80;
   property int row_height: 8;
 
   color: "#ffffff";
-  width: chart_width*3 + 2*chart_spacing;
-  height: chart_height*2 + chart_spacing + 2*row_height + text_height;
+  width: 600;
+  height: 400;
 
 // /////////////////////////////////////////////////////////////////
 // Header
@@ -107,12 +104,13 @@ Rectangle {
     height: parent.height - 2*row_height - text_height;
 
     columns: 3;
+	rows: 2
     spacing: chart_spacing;
 
     Chart {
       id: chart_line;
-      width: chart_width;
-      height: chart_height;
+      width: layout.width / layout.columns - (layout.columns - 1) * layout.spacing;
+      height: layout.height / layout.rows - (layout.rows - 1) * layout.spacing;
       chartAnimated: true;
       chartAnimationEasing: Easing.OutElastic;
       chartAnimationDuration: 2000;
@@ -122,8 +120,8 @@ Rectangle {
 
     Chart {
       id: chart_polar;
-      width: chart_width;
-      height: chart_height;
+      width: layout.width / layout.columns - (layout.columns - 1) * layout.spacing;
+      height: layout.height / layout.rows - (layout.rows - 1) * layout.spacing;
       chartAnimated: true;
       chartAnimationEasing: Easing.InBounce;
       chartAnimationDuration: 2000;
@@ -133,8 +131,8 @@ Rectangle {
 
     Chart {
       id: chart_radar;
-      width: chart_width;
-      height: chart_height;
+      width: layout.width / layout.columns - (layout.columns - 1) * layout.spacing;
+      height: layout.height / layout.rows - (layout.rows - 1) * layout.spacing;
       chartAnimated: true;
       chartAnimationEasing: Easing.OutBounce;
       chartAnimationDuration: 2000;
@@ -144,8 +142,8 @@ Rectangle {
 
     Chart {
       id: chart_pie;
-      width: chart_width;
-      height: chart_height;
+      width: layout.width / layout.columns - (layout.columns - 1) * layout.spacing;
+      height: layout.height / layout.rows - (layout.rows - 1) * layout.spacing;
       chartAnimated: true;
       chartAnimationEasing: Easing.Linear;
       chartAnimationDuration: 2000;
@@ -155,8 +153,8 @@ Rectangle {
 
     Chart {
       id: chart_bar;
-      width: chart_width;
-      height: chart_height;
+     width: layout.width / layout.columns - (layout.columns - 1) * layout.spacing;
+      height: layout.height / layout.rows - (layout.rows - 1) * layout.spacing;
       chartAnimated: true;
       chartAnimationEasing: Easing.OutBounce;
       chartAnimationDuration: 2000;
@@ -166,8 +164,8 @@ Rectangle {
 
     Chart {
       id: chart_doughnut;
-      width: chart_width;
-      height: chart_height;
+      width: layout.width / layout.columns - (layout.columns - 1) * layout.spacing;
+      height: layout.height / layout.rows - (layout.rows - 1) * layout.spacing;
       chartAnimated: true;
       chartAnimationEasing: Easing.OutElastic;
       chartAnimationDuration: 2000;
